@@ -1,0 +1,6 @@
+{
+  "name": "GC Link",
+  "version": "0.1",
+  "description": "Make schedule urls from Google Calendar",
+  "manifest_version": 2
+}
