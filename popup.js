@@ -1,19 +1,9 @@
-const schedule = document.querySelector('.RDlrG');
-console.log(schedule);
-
-if (schedule) {
-} else {
-  console.log('Select schedule');
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  chrome.tabs.executeScript({
-    code: 'document.body.style.backgroundColor="orange"'
-  });
-
+  console.log('hoge');
   chrome.tabs.query({ active: true, currentWindow: true, lastFocusedWindow: true }, function (tabs) {
-
-    console.log(tabs[0]);
-    const url = new URL(tabs[0].url);
+    console.log(tabs);
+    chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+      console.log(response.farewell);
+    });
   });
 });

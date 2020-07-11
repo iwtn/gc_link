@@ -18,5 +18,11 @@
     "48": "images/GC_Link_64.png",
     "128": "images/GC_Link_128.png"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://calendar.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
   "manifest_version": 2
 }
