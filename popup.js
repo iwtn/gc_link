@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.eventId) {
         url = preUel + response.eventId;
         view.innerHTML = '<a href="' + url + '" target="_blank">' + url + '</a>';
+
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(view);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        document.execCommand('copy');
       } else {
         view.innerHTML = 'Event id is not found';
       }
