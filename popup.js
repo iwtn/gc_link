@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.execCommand('copy');
       } else {
-        view.innerHTML = 'Event id is not found';
+        view.innerHTML = 'Click on the schedule you want to create a URL for.';
       }
     });
   });
