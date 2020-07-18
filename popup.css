@@ -1,4 +1,13 @@
 body {
-  width: 500px;
-  height: 3em;
+  width: 800px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin-bottom: 0.5em;
+}
+ul li button {
+  margin-right: 5px;
 }

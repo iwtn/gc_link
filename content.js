@@ -5,7 +5,9 @@ chrome.extension.onMessage.addListener(
 
       let res = {};
       if (elm) {
-        res.eventId = document.querySelector('.RDlrG div[data-eventid]').dataset.eventid;
+        res.eventId = elm.querySelector('div[data-eventid]').dataset.eventid;
+        res.text = elm.querySelector('div[data-text]').dataset.text;
+        res.date = elm.querySelector('.DN1TJ').innerText;
       } else {
         res.eventId = null;
       }
