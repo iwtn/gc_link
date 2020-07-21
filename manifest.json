@@ -1,6 +1,6 @@
 {
   "name": "GC Link",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Make schedule urls from Google Calendar",
   "permissions": ["activeTab", "declarativeContent"],
   "browser_action": {
