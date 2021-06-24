@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
       const view = document.getElementById('eventUrl');
       if (response.eventId) {
-        url = preUel + response.eventId;
-        text = response.text;
-        date = response.date;
+        const url = preUel + response.eventId;
+        const text = response.text;
+        const date = response.date;
         view.appendChild(makeLinkTag(url, url));
         view.appendChild(makeLinkTag(text, url));
         view.appendChild(makeLinkTag(date, url));

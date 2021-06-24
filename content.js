@@ -6,7 +6,7 @@ chrome.extension.onMessage.addListener(
       let res = {};
       if (elm) {
         res.eventId = elm.querySelector('div[data-eventid]').dataset.eventid;
-        res.text = elm.querySelector('div[data-text]').dataset.text;
+        res.text = elm.querySelector('.JAPzS').dataset.text;
         res.date = elm.querySelector('.DN1TJ').innerText;
       } else {
         res.eventId = null;
