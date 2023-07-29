@@ -1,18 +1,15 @@
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if (request.greeting == "hello") {
-      const elm = document.querySelector('.RDlrG');
-
-      let res = {};
-      if (elm) {
-        res.eventId = elm.querySelector('div[data-eventid]').dataset.eventid;
-        res.text = elm.querySelector('.JAPzS').dataset.text;
-        res.date = elm.querySelector('.DN1TJ').innerText;
-      } else {
-        res.eventId = null;
-      }
-      sendResponse(res);
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === "getData") {
+    const elm = document.querySelector('.RDlrG');
+    let res = {};
+    if (elm) {
+      res.eventId = elm.querySelector('div[data-eventid]').dataset.eventid;
+      res.text = elm.querySelector('.UfeRlc').dataset.text;
+      res.date = elm.querySelector('.AzuXid').innerText;
+    } else {
+      res.eventId = null;
     }
-    return true;
+    sendResponse(res);
+    return true
   }
-);
+});
