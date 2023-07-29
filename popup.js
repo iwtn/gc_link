@@ -37,20 +37,18 @@ const makeLinkTag = (text, url) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  chrome.tabs.query({ active: true, currentWindow: true, lastFocusedWindow: true }, function (tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-      const view = document.getElementById('eventUrl');
-      if (response.eventId) {
-        const url = preUel + response.eventId;
-        const text = response.text;
-        const date = response.date;
-        view.appendChild(makeLinkTag(url, url));
-        view.appendChild(makeLinkTag(text, url));
-        view.appendChild(makeLinkTag(date, url));
-        view.appendChild(makeLinkTag(text + ' (' + date + ')', url));
-      } else {
-        view.innerHTML = 'Click on the schedule you want to create a URL for.';
-      }
-    });
+  chrome.runtime.sendMessage({ type: "getData" }, (response) => {
+    const view = document.getElementById('eventUrl');
+    if (response.eventId) {
+      const url = preUel + response.eventId;
+      const text = response.text;
+      const date = response.date;
+      view.appendChild(makeLinkTag(url, url));
+      view.appendChild(makeLinkTag(text, url));
+      view.appendChild(makeLinkTag(date, url));
+      view.appendChild(makeLinkTag(text + ' (' + date + ')', url));
+    } else {
+      view.innerHTML = 'Click on the schedule you want to create a URL for.';
+    }
   });
 });
